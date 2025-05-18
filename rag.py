@@ -40,10 +40,21 @@ class QueryRequest(BaseModel):
 
 @app.post("/chat")
 async def chat(req: QueryRequest):
-    result = qa_chain({"question": req.question})
-    return {"answer": result["answer"]}
+    print(f"Received question: {req.question}")
+    try:
+        result = qa_chain({"question": req.question})
+        print("Got result from chain.")
+        return {"answer": result["answer"]}
+    except Exception as e:
+        print("Error:", str(e))
+        return {"answer": "Something went wrong on the server."}
 
 @app.get("/")
 async def health():
     return {"status" : "ok"}
+
+
+@app.post("/post")
+async def post(req: QueryRequest):
+    return {"status : "Haa bhe hutyee"}
     
