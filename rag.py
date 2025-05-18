@@ -56,5 +56,5 @@ async def health():
 
 @app.post("/post")
 async def post(req: QueryRequest):
-    return {"status : "Haa bhe hutyee"}
+    return {"status" : "Haa bhe hutyee"}
     
