@@ -11,7 +11,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain_huggingface import HuggingFaceEmbeddings
 
 # Load env variables
-load_dotenv("C:/LangChain/api.env")
+load_dotenv()
 
 app = FastAPI()
 
