@@ -45,5 +45,5 @@ async def chat(req: QueryRequest):
 
 @app.get("/")
 async def health():
-    return {"status" : "ok")
+    return {"status" : "ok"}
     
