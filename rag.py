@@ -42,3 +42,8 @@ class QueryRequest(BaseModel):
 async def chat(req: QueryRequest):
     result = qa_chain({"question": req.question})
     return {"answer": result["answer"]}
+
+@app.get("/")
+async def health():
+    return {"status" : "ok")
+    
