@@ -9,11 +9,23 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains.conversational_retrieval.base import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 from langchain_huggingface import HuggingFaceEmbeddings
+from fastapi.middleware.cors import CORSMiddleware
 
 # Load env variables
 load_dotenv("/etc/secrets/secret.env")
 
 app = FastAPI()
+
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], 
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # Memory & Chain Setup
 loader = TextLoader("mydata.txt")
